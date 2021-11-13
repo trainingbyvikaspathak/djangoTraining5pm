@@ -1,0 +1,45 @@
+<html>
+    {%load static %}
+    <head>
+        <title>dict</title>
+        <script>
+
+            function showMeaning(){
+                result.innerHTML = "<img src=\"{%static 'images/loading.gif'%}\" width='50' height='50'/>" ;
+                    
+                ajax = new XMLHttpRequest();
+                ajax.open('GET',"{%url 'dictionary'%}?word="+word.value ,true)
+                ajax.send();
+                ajax.onreadystatechange=function(){
+                    if (this.readyState==4 && this.status==200){
+                        response = this.responseText;
+                        data = JSON.parse(response);
+                        result.innerHTML = `<h3>Word :  ${data.id}`;
+                        result.innerHTML += `<br/><br/><b>Pronounciation :<br/> <audio controls><source src="${data.results[0].lexicalEntries[0].entries[0].pronunciations[0].audioFile}"/> </audio>`
+                        result.innerHTML +=`<br/> <b>Definitions : - <br/></b>`;
+                        for (x of  data.results[0].lexicalEntries[0].entries[0].senses[0].definitions)
+                         result.innerHTML+= `<li> ${x}</li>`;
+                        
+                        result.innerHTML +=`<br/> <b>Examples : - <br/></b>`;
+                        for (x of  data.results[0].lexicalEntries[0].entries[0].senses[0].examples)
+                         result.innerHTML+= `<li> ${x.text}</li>`;
+
+
+                        }
+                };
+            }
+        </script>
+    </head>
+    <body>
+
+        Enter your Word <input type="text" id='word' name='word' required/>
+        <br/>
+        <input type="button" value="Search" onclick="showMeaning();"/> 
+        <br/><br/>
+
+        <div id='result' style="font-family: corbel;font-size:16;">
+        result :
+            
+    </div>
+    </body>
+</html>

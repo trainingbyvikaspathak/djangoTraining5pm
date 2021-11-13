@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>My app</title>
+        {%load static %}
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   
+<link href="{%static 'myapp/mycss.css'%}" type='text/css' rel='stylesheet'/>
+<script src="{%static 'myapp/myjs.js'%}" type='text/javascript'></script>
+</head>
+    <body> 
+        <div class ='container'>
+            <div class='row'>
+                <div class='col col-md-12'>
+                    <h1>Home page of my</h1>
+                    <h2 class='heading'>First django app</h2>
+                    <br/>
+                    <h3>App is created by {{name}}</h3>
+
+                    <script>
+                            alert('welcome  {{name}}');
+                        </script>
+            </div>
+        </div>
+
+    </body>
+</html>

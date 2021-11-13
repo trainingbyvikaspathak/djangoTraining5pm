@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>show</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Select color</legend> 
+            <form id='f1'>
+            <input type="radio" name='color' value='blue' {%if color == 'blue'%} checked {%endif%} onclick='f1.submit()'/>Blue
+            <input type="radio" name='color' value='black' {%if color != 'blue'%} checked {%endif%} onclick='f1.submit()'/>Black 
+        </form>
+        </fieldset>
+        <div style='width:100%;color:{{color}};font-size:20px'>
+            THIS IS GIST.     THIS IS GIST.     THIS IS GIST.     THIS IS GIST . <br/>
+            THIS IS GIST.     THIS IS GIST.     THIS IS GIST.     THIS IS GIST . <br/>
+            THIS IS GIST.     THIS IS GIST.     THIS IS GIST.     THIS IS GIST . <br/>
+            THIS IS GIST.     THIS IS GIST.     THIS IS GIST.     THIS IS GIST . <br/>
+            THIS IS GIST.     THIS IS GIST.     THIS IS GIST.     THIS IS GIST . <br/>
+            THIS IS GIST.     THIS IS GIST.     THIS IS GIST.     THIS IS GIST . <br/>
+            THIS IS GIST.     THIS IS GIST.     THIS IS GIST.     THIS IS GIST . <br/>
+            THIS IS GIST.     THIS IS GIST.     THIS IS GIST.     THIS IS GIST . <br/>
+            THIS IS GIST.     THIS IS GIST.     THIS IS GIST.     THIS IS GIST . <br/>
+            THIS IS GIST.     THIS IS GIST.     THIS IS GIST.     THIS IS GIST . <br/>
+            THIS IS GIST.     THIS IS GIST.     THIS IS GIST.     THIS IS GIST . <br/>
+            THIS IS GIST.     THIS IS GIST.     THIS IS GIST.     THIS IS GIST . <br/>
+        </div>
+    </body>
+</html>

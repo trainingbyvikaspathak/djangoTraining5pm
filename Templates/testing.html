@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>testing</title>
+    </head>
+    <body>
+        some results :
+         {{name}} <br/>
+
+            {{student}} <br/>
+
+            {{student.name}}  <br/>
+
+            {{student.marks}}
+<Br/><br/>
+        {% if name%}
+        <b> welcome {{name}}!</b>
+        {% else %}
+        <b>Welcome guest !</b>
+        {% endif %}
+        <hr/>
+        Details of Marks : <br/>
+        {% for mark in student.marks%} 
+            ({{forloop.counter0}}) {{mark}} <br/>
+        {% endfor%}
+<hr/>
+{{months}}
+<h2>List of months :</h2>
+<table border='2' width='200' cellspacing='0'>
+    <tr>
+        <td>Sno</td><td>Name</td>
+</tr>
+{%for month in months%}
+<tr><td>{{forloop.counter}}</td> <td>{{month}}</td></tr>
+{%empty%}
+<tr><td colspan='2'>no list found </td></tr>
+{%endfor%}
+</table>
+    </body>
+</html>

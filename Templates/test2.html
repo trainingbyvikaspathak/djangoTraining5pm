@@ -1,0 +1,10 @@
+<h2>Incomming data is : </h2> <br/>
+    {{data}}
+    <br/>
+
+<table border='1' cellspacing='0'>
+{% for m in months%}
+<tr><td style="background-color:{%cycle 'red' 'yellow'%}">{{m}}</td></tr>
+{%endfor%}
+
+</table>

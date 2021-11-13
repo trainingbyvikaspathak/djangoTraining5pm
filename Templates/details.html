@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Details</title>
+    </head>
+    <body>
+
+        <pre>
+
+            <form action="{%url 'process'%} ">
+                enter your name     <input type = "text" name="name" id="name" required/>
+
+                Enter your age      <input type="number" name="age" />
+
+                select gender :
+                            <input type="radio" name="gen" value="Male"/>M 
+                            <input type="radio" name="gen" value="Female"/> F
+
+                select hobbies :
+                        <input type="checkbox" value="singing" name ="hobbies"/>Singing 
+                        <input type="checkbox" value="dancing" name ="hobbies"/>Dancing 
+                        <input type="checkbox" value="cooking" name ="hobbies"/>Cooking 
+                        <input type="checkbox" value="reading" name ="hobbies"/>Singing 
+                        
+
+                <input type="submit" value="submit" name="submit"/>
+
+            </form>
+        </pre>
+    </body>
+</html>

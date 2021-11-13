@@ -1,0 +1,49 @@
+<html>
+
+    <head>
+        <title>Sms sender</title>
+        <script>
+           var otp = '';
+            function send(){
+                ajax = new XMLHttpRequest();
+                ajax.open("GET",`{%url 'sendSms'%}?numbers=${mobile.value}&message=${message.value}`,true)
+                ajax.send()
+                ajax.onreadystatechange=function(){
+                    if(this.readyState==4 && this.status==200){
+                        alert(this.responseText);
+                        data = JSON.parse(this.responseText);
+                        alert(data.server_output + " - "+ data.otp);
+                        data1=JSON.parse(data.server_output);
+                        result.innerHTML = data1.message;
+                        otp = data.otp;
+                    }
+                };
+                
+            }
+            function validate(x){
+                alert(x.value + "," + otp);
+                    if (x.value===otp)
+                    result1.innerHTML= 'OTP IS VALID';
+                    else
+                    result1.innerHTML='INVALID OTP, TRY AGAIN';
+            }
+        </script>
+    </head>
+    <body>
+        <pre>
+            MOBILE NUMBER :<input type="text" id="mobile" name="mobile" />
+
+            TYPE YOUR MEMSSAGE : 
+            <textarea name="message" id="message" rows="20" cols="30" maxlength="160">
+
+            </textarea>
+            <br/> <span id="result"></span>
+
+            <input type="Button" value="SEND" onclick="send();"/>
+            <br/>
+            <input type="text" id='otpp' /> <input type="button" value='Validate OTP' onclick='validate(otpp);' />
+            <br/><span id="result1"></span>
+            
+        </pre>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>ajax state</title>
+        <script>
+            function loadstates(){
+                ajax = new XMLHttpRequest();
+                ajax.open('GET',"{%url 'loadstatecity'%}?req=states",'true');
+                ajax.send();
+                ajax.onreadystatechange=function(){
+                    if(this.readyState==4 && this.status==200){
+                        let states = JSON.parse(this.responseText);
+                        for (x in states){
+                            document.getElementById('states').innerHTML+= `<option value='${x}'> ${states[x]} </option>`;
+                        }
+                    }
+                };
+            }
+            function loadcities(){
+                ajax = new XMLHttpRequest();
+                ajax.open('GET',"{%url 'loadstatecity'%}?req=city&state="+states.value,'true');
+                ajax.send();
+                ajax.onreadystatechange=function(){
+                    if(this.readyState==4 && this.status==200){
+                        let cities = JSON.parse(this.responseText);
+                        document.getElementById('cities').innerHTML=` <option value="" disabled selected>Select city</option>
+`;
+                        for (x in cities){
+                            document.getElementById('cities').innerHTML += `<option value='${x}'>${cities[x]}</option>`;
+                        }
+                    }
+                };
+                //alert('city loaded..');
+            }
+        </script>
+    </head>
+    <body onload='loadstates();'>
+    <pre>
+        <select name='states' id='states' onchange='loadcities();'>
+            <option value="" disabled selected>Select state</option>
+        </select>
+
+        <select name='cities' id='cities'>
+            <option value="" disabled selected>Select city</option>
+        </select>
+
+    </pre>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Ajax ex-1</title>
+  <script>
+      function checkCity(){
+        city = document.getElementById("city").value;
+        ajax = new XMLHttpRequest();
+        ajax.open("GET", "{%url 'registerCity'%}?city="+city,true);
+        ajax.send();
+        ajax.onreadystatechange=function(){
+            if(this.readyState==4 && this.status==200){
+                response=JSON.parse(this.responseText);
+                if(response.type=="success")
+                 citymsg.style.color="blue";
+                 else
+                 citymsg.style.color="red";
+                citymsg.innerHTML=response.message;   
+            }
+            };
+      }
+  </script>
+    </head>
+    <body>
+        <pre>
+<form action="{%url 'register'%}">
+    <input type="text" id="name" name="name" placeholder="enter Name" required/>
+
+    <input type="text" id="city" name="city" placeholder="enter city" onchange="checkCity();"/>
+    <span id="citymsg"></span>
+
+    <input type="number" id="age" name="age" placeholder="enter age"/>
+
+    <textarea id="address" class="address" rows="10" cols="30"></textarea>
+
+    <input type="submit" value="submit" name="submit"/>
+</form>
+
+        </pre>
+    </body>
+</html>

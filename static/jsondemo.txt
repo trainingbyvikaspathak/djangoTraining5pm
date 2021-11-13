@@ -1,0 +1,7 @@
+[
+    {"name":"amit","age":20,"mobile":6655443322,"rollno":101},
+    {"name":"mohit","age":20,"mobile":6655443322,"rollno":102},
+    {"name":"ram","age":20,"mobile":6655443322,"rollno":103},
+    {"name":"mukesh","age":20,"mobile":6655443322,"rollno":104},
+    {"name":"ganesh","age":20,"mobile":6655443322,"rollno":105}
+]

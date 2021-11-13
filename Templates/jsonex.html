@@ -1,0 +1,41 @@
+<html>
+    <head>
+    <title>json</title>
+    {%load static%}
+    <script src="{%static 'js/statecity.js'%}"></script>
+    <script>
+         //sc = JSON.parse(statecity);
+
+         function loadStates(){
+                for (x in sc.states){
+                    document.getElementById('state').innerHTML+=`<option value='${sc.states[x].state}'>${sc.states[x].state}</option>`;
+                } 
+         }
+         function loadCities(){
+                state= document.getElementById('state').value;
+                cities = sc[state];
+                document.getElementById('city').innerHTML="<option value=''disabled selected>Select City</option>";
+                
+                for (x of cities){
+                    document.getElementById('city').innerHTML+=`<option value='${x}'>${x}</option>`;
+               
+                }
+         }
+         </script>
+
+</head>
+    <body onload='loadStates();'>
+        
+    <pre>
+
+    <select id='state' onchange='loadCities();'>
+        <option value=''disabled selected>Select State</option>
+    </select>
+
+    <select id='city'>
+        <option value=''disabled selected>Select City</option>
+    </select>
+    
+    </pre>
+    </body>
+</html>

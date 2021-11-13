@@ -1,0 +1,43 @@
+<html>
+    {% load static %}
+    <head>
+        <title>json demo</title>
+        <script>
+                function loadData(){
+                xml = new XMLHttpRequest();
+                xml.open('GET',"{%static 'jsondemo.txt'%}",true);
+                xml.send();
+                xml.onreadystatechange =function(){
+                    if (xml.readyState==4 && xml.status==200) {
+                        details  =JSON.parse(this.responseText);
+                        found = 0;
+                        for (obj of details){
+                            if(obj.rollno == rn.value) {
+                                demo.innerHTML = 'name : '  + obj.name + ', age :' +obj.age;
+                                error.innerHTML='';
+                                found=1;
+
+                            }
+                        }
+                    if (found==0)
+                    {
+                        demo.innerHTML='';
+                        error.innerHTML='data not found';
+                    }
+                    }
+                };
+                }
+            </script>
+    </head>
+    <body>
+        <pre>
+            Enter Rollno    <input type="text" id='rn' name='rn' onkeyup='loadData();'/> 
+            <span style='color:red' id='error'></span>
+            
+            <div id='demo'>
+
+            </div>
+
+        </pre>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Login</title>
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <hr/>
+<table width='100%'>
+    <tr>
+        <td><a href="{%url 'login'%}">Login</a></td>
+        
+        <td><a href="{%url 'profile'%}">Profile</a></td>
+
+        
+        <td><a href="{%url 'logout'%}">Logout</a></td>
+    </tr>
+</table>
+<hr/>
+
+       <span style="color:red;font-size:16px"> {{error_message}} </span>
+      
+       {%block content%}
+       {%endblock%}
+    </body>
+</html>
+
+
+

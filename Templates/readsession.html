@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title> session </title></head>
+        <body>
+               <h2>all session data :</h2>
+               {%for key,value in request.session.items%} 
+                <br/> {{key}} - {{value}}
+               {%endfor%}
+
+               {{request.session.name}}
+               <hr/>
+               <b>session age :</b> {{request.session.get_session_cookie_age}} <br/>
+               
+               <b>session expiry age :</b> {{request.session.get_expiry_age}} <br/>
+               
+               <b>session expiry date/time :</b> {{request.session.get_expiry_date}} <br/>
+               
+               <b>browser close expiry :</b> {{request.session.get_expire_at_browser_close}} <br/>
+        </body> 
+    </html>

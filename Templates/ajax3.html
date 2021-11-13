@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>ajax3</title>
+        <script>
+          var  persons=new Array();
+          function addRecord(){
+            let  person={'name':pname.value,'age':age.value};
+            persons.push(person);
+            showRecord();
+          }
+          function showRecord(){
+            table1.innerHTML='<tr><th>Name</th><th>Age</th></tr>';
+            for (x of persons){
+                table1.innerHTML+=`<tr><td>${x.name}</td><td>${x.age}</td></tr>`;
+            }
+
+          }
+          function sendRecords(){
+            ajax = new XMLHttpRequest();
+            ajax.open("GET","{%url 'ajax3Process'%}?json="+JSON.stringify(persons),true);
+            ajax.send();
+            ajax.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200){
+                    data = this.responseText;
+                    result.innerHTML=data;
+                }
+            };
+          }
+        </script>
+
+
+    </head>
+    <body>
+        <pre>
+            <input type="text" name='pname' id='pname' placeholder="enter name"/>
+
+            <input type="number" name='age' id='age' placeholder="enter age"/>
+
+                    <input type='button' value="add" onclick="addRecord();"/>
+
+            <h2>Details :</h2>
+                    <table id='table1' width="400" border='2' cellspacing='0'>
+
+            </table>
+            <br/>
+            <input type="button" value="send to server" onclick="sendRecords();"/>
+            <br/>
+            <span id='result'></span>
+        </pre>
+    </body>
+</html>

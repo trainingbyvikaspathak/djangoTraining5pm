@@ -1,0 +1,31 @@
+
+      {%extends 'sessionTest.html'%}
+      {%block content%}
+      {%if message %}
+        {{message}}
+    {%else%}
+       <form  method="post">
+           {%csrf_token%}
+       <table>
+        <tr>
+            <td>Enter Name</td>
+            <td><input type="text" name="name" id="name" required/></td>
+        </tr>
+       
+            <tr>
+                <td>Enter userid</td>
+                <td><input type="text" name="userid" id="userid" required/></td>
+            </tr>
+            <tr>
+                <td>Enter password</td>
+                <td><input type="password" name="password" id="password" required/></td>
+             
+            </tr>
+            <tr>
+                <th colspan="2"><input type="submit" value="login"></th>
+            </tr>
+        </table>
+    </form>
+    {%endif%} 
+{%endblock%}
+   

@@ -1,0 +1,9 @@
+<table width='100%' border='2'cellspacing='0'>
+    <tr>
+        <td>Name</td>
+        <td>Value</td>
+    </tr>
+    {% for name,value in headers.items%}
+    <tr><td>{{name}}</td><td>{{value}}</td></tr>
+    {%endfor%}
+</table>
